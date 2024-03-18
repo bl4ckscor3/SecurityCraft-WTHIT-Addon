@@ -8,18 +8,36 @@ plugins {
 
 version = '1.0'
 group = 'bl4ckscor3.mod.scwthitaddon'
-archivesBaseName = 'scwthitaddon-1.18.2'
+archivesBaseName = 'scwthitaddon-1.16.5'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
+processResources {
+	duplicatesStrategy = 'include'
+
+	//replace ${version} in mods.toml
+	inputs.property 'version', project.version
+
+	from(sourceSets.main.resources.srcDirs) {
+		include 'META-INF/mods.toml'
+
+		expand 'version': project.version
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+		exclude 'META-INF/mods.toml'
+	}
+}
+
 minecraft {
-    mappings channel: 'parchment', version: '2022.11.06-1.18.2'
+    mappings channel: 'parchment', version: '2022.03.06-1.16.5'
 
 	runs {
         client {
             workingDirectory project.file('run/client')
             property 'forge.logging.console.level', 'debug'
+            args '-mixin.config=scwthitaddon.mixins.json'
 
             mods {
                 scwthitaddon {
@@ -31,6 +49,7 @@ minecraft {
         server {
             workingDirectory project.file('run/server')
             property 'forge.logging.console.level', 'debug'
+            args '-mixin.config=scwthitaddon.mixins.json'
 
             mods {
                 scwthitaddon {
@@ -51,11 +70,15 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+    annotationProcessor 'org.spongepowered:mixin:0.8.3:processor'
 
-    implementation fg.deobf("curse.maven:badpackets-615134:4073849")
-    implementation fg.deobf("curse.maven:security-craft-64760:4795144")
-    implementation fg.deobf("curse.maven:wthit-forge-455982:4368794")
+    implementation fg.deobf("curse.maven:security-craft-64760:4795140")
+    implementation fg.deobf("curse.maven:wthit-forge-455982:3831595")
+}
+
+mixin {
+    add sourceSets.main, "scwthitaddon.refmap.json"
 }
 
 jar {
@@ -65,7 +88,8 @@ jar {
                     "Specification-Version": "${version}",
                     "Implementation-Title": "SecurityCraft WTHIT Addon",
                     "Implementation-Version": "${version}",
-                    "Implementation-Vendor": "bl4ckscor3"])
+                    "Implementation-Vendor": "bl4ckscor3",
+                    "MixinConfigs": "scwthitaddon.mixins.json"])
     }
 }
 

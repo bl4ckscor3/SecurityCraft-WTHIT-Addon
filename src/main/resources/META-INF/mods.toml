@@ -1,7 +1,7 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[36,)"
 logoFile="sc_banner.png"
-license="MIT https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/blob/1.18.2/LICENSE"
+license="MIT https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/blob/1.16.5/LICENSE"
 issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
 
 [[mods]]
@@ -15,30 +15,34 @@ issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
 [[dependencies.scwthitaddon]]
     modId="forge"
     mandatory=true
-    versionRange="[40,)"
+    versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.scwthitaddon]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,1.19)"
+    versionRange="[1.16.5,1.17)"
     ordering="NONE"
     side="BOTH"
-    
+
 [[dependencies.scwthitaddon]]
     modId="securitycraft"
     mandatory=true
     versionRange="[v1.9.7,)"
     ordering="NONE"
     side="BOTH"
-    
+
 [[dependencies.scwthitaddon]]
     modId="wthit"
-    mandatory=false
-    versionRange="[4,)"
+    mandatory=true
+    versionRange="[2,)"
     ordering="NONE"
     side="BOTH"
 
 [modproperties.scwthitaddon]
     catalogueImageIcon="logo.png"
+
+[[wailaPlugins]]
+    id="securitycraft:plugin"
+    initializer="bl4ckscor3.mod.scwthitaddon.WTHITDataProvider"
