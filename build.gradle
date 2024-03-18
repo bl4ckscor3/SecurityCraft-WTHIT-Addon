@@ -6,9 +6,6 @@ plugins {
 	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
 version = '1.0'
 group = 'bl4ckscor3.mod.scwthitaddon'
 archivesBaseName = 'scwthitaddon-1.18.2'
