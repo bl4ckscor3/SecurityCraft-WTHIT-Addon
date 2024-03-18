@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
 
 [[mods]]
 	modId="scwthitaddon"
-	version="${file.jarVersion}"
+	version="${version}"
 	displayName="SecurityCraft WTHIT Addon"
 	description='''Adds integration with WTHIT to SecurityCraft.'''
 	displayURL="https://www.curseforge.com/minecraft/mc-mods/securitycraft-wthit-addon"

@@ -14,7 +14,7 @@ import net.geforcemods.securitycraft.compat.waila.WailaDataProvider;
  */
 @Mixin(WailaDataProvider.class)
 public class WailaDataProviderMixin {
-	@Inject(method = "register", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "register", at = @At("HEAD"), cancellable = true, remap = false)
 	private void scwthitaddon$preventSecurityCraftsWailaPluginFromLoading(IRegistrar registrar, CallbackInfo ci) {
 		ci.cancel();
 	}
