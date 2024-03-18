@@ -35,7 +35,7 @@ issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
     
 [[dependencies.scwthitaddon]]
     modId="wthit"
-    mandatory=false
+    mandatory=true
     versionRange="[4,)"
     ordering="NONE"
     side="BOTH"
