@@ -1,0 +1,77 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'org.spongepowered.mixin' version '0.7.+'
+	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+}
+
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+version = '1.0'
+group = 'bl4ckscor3.mod.scwthitaddon'
+archivesBaseName = 'scwthitaddon'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+minecraft {
+    mappings channel: 'parchment', version: '2022.11.06-1.18.2'
+
+	runs {
+        client {
+            workingDirectory project.file('run/client')
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                scwthitaddon {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run/server')
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                scwthitaddon {
+                    source sourceSets.main
+                }
+            }
+        }
+	}
+}
+
+repositories {
+    maven {
+    	url "https://cursemaven.com/"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
+
+    implementation fg.deobf("curse.maven:badpackets-615134:4073849")
+    implementation fg.deobf("curse.maven:security-craft-64760:4795144")
+    implementation fg.deobf("curse.maven:wthit-forge-455982:4368794")
+}
+
+jar {
+    manifest {
+        attributes(["Specification-Title": "SecurityCraft WTHIT Addon",
+                    "Specification-Vendor": "bl4ckscor3",
+                    "Specification-Version": "${version}",
+                    "Implementation-Title": "SecurityCraft WTHIT Addon",
+                    "Implementation-Version": "${version}",
+                    "Implementation-Vendor": "bl4ckscor3"])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}

@@ -1,0 +1,44 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+logoFile="sc_banner.png"
+license="MIT https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/blob/1.18.2/LICENSE"
+issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
+
+[[mods]]
+	modId="scwthitaddon"
+	version="${file.jarVersion}"
+	displayName="SecurityCraft WTHIT Addon"
+	description='''Adds integration with WTHIT to SecurityCraft.'''
+	displayURL="https://www.curseforge.com/minecraft/mc-mods/securitycraft-wthit-addon"
+	authors="bl4ckscor3"
+
+[[dependencies.scwthitaddon]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.scwthitaddon]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
+    
+[[dependencies.scwthitaddon]]
+    modId="securitycraft"
+    mandatory=true
+    versionRange="[v1.9.7,)"
+    ordering="NONE"
+    side="BOTH"
+    
+[[dependencies.scwthitaddon]]
+    modId="wthit"
+    mandatory=false
+    versionRange="[4,)"
+    ordering="NONE"
+    side="BOTH"
+
+[modproperties.scwthitaddon]
+    catalogueImageIcon="logo.png"
