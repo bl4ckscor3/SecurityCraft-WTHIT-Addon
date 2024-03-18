@@ -29,7 +29,7 @@ issueTrackerURL="https://github.com/bl4ckscor3/SecurityCraft-WTHIT-Addon/issues"
 [[dependencies.scwthitaddon]]
     modId="securitycraft"
     mandatory=true
-    versionRange="[v1.9.7,)"
+    versionRange="[v1.9.8,)"
     ordering="NONE"
     side="BOTH"
     
