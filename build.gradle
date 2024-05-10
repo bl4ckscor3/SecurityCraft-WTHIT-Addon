@@ -1,12 +1,12 @@
 plugins {
 	id 'eclipse'
 	id 'idea'
-	id 'net.minecraftforge.gradle' version '5.1.+'
+	id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 	id 'org.spongepowered.mixin' version '0.7.+'
 	id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.0'
+version = '1.1'
 group = 'bl4ckscor3.mod.scwthitaddon'
 archivesBaseName = 'scwthitaddon-1.18.2'
 
@@ -54,7 +54,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
 
     implementation fg.deobf("curse.maven:badpackets-615134:4073849")
-    implementation fg.deobf("curse.maven:security-craft-64760:4795144")
+    implementation fg.deobf("curse.maven:security-craft-64760:5207768")
     implementation fg.deobf("curse.maven:wthit-forge-455982:4368794")
 }
 
@@ -71,4 +71,5 @@ jar {
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'
+	options.release = 17
 }
