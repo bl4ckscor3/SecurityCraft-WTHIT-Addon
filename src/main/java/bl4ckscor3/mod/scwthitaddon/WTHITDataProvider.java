@@ -62,9 +62,9 @@ public final class WTHITDataProvider implements IWailaPlugin, IBlockComponentPro
 	@Override
 	public void register(IRegistrar registrar) {
 		registrar.addEventListener(INSTANCE);
-		registrar.addSyncedConfig(SHOW_OWNER, true, true);
-		registrar.addSyncedConfig(SHOW_MODULES, true, true);
-		registrar.addSyncedConfig(SHOW_CUSTOM_NAME, true, true);
+		registrar.addSyncedConfig(SHOW_OWNER, true, false);
+		registrar.addSyncedConfig(SHOW_MODULES, true, false);
+		registrar.addSyncedConfig(SHOW_CUSTOM_NAME, true, false);
 		registrar.addComponent((IBlockComponentProvider) INSTANCE, TooltipPosition.HEAD, IOverlayDisplay.class);
 		registrar.addComponent((IBlockComponentProvider) INSTANCE, TooltipPosition.BODY, IOwnable.class);
 		registrar.addComponent((IBlockComponentProvider) INSTANCE, TooltipPosition.TAIL, IOverlayDisplay.class);
