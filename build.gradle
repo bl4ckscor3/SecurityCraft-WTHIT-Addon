@@ -54,7 +54,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
 
     implementation fg.deobf("curse.maven:badpackets-615134:4073849")
-    implementation fg.deobf("curse.maven:security-craft-64760:5207768")
+    implementation fg.deobf("curse.maven:security-craft-64760:5424858")
     implementation fg.deobf("curse.maven:wthit-forge-455982:4368794")
 }
 
