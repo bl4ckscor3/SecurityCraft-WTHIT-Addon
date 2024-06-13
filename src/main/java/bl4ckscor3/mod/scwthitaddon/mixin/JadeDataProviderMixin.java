@@ -6,16 +6,16 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import mcp.mobius.waila.api.IRegistrar;
-import net.geforcemods.securitycraft.compat.waila.WailaDataProvider;
+import net.geforcemods.securitycraft.compat.hudmods.JadeDataProvider;
 
 /**
- * WTHIT loads SecurityCraft's waila plugin which does not entirely work with WTHIT. Since this mod adds proper support for
+ * WTHIT loads SecurityCraft's Jade plugin which does not entirely work with WTHIT. Since this mod adds proper support for
  * WTHIT, the plugin needs to be prevented from loading.
  */
-@Mixin(WailaDataProvider.class)
-public class WailaDataProviderMixin {
+@Mixin(JadeDataProvider.class)
+public class JadeDataProviderMixin {
 	@Inject(method = "register", at = @At("HEAD"), cancellable = true, remap = false)
-	private void scwthitaddon$preventSecurityCraftsWailaPluginFromLoading(IRegistrar registrar, CallbackInfo ci) {
+	private void scwthitaddon$preventSecurityCraftsJadePluginFromLoading(IRegistrar registrar, CallbackInfo ci) {
 		ci.cancel();
 	}
 }
