@@ -74,7 +74,7 @@ public final class WTHITDataProvider extends HudModHandler implements IWailaPlug
 		BlockState state = data.getBlockState();
 		Block block = data.getBlock();
 
-		addOwnerModuleNameInfo(level, pos, state, block, data.getBlockEntity(), data.getPlayer(), tooltip::add, config::get);
+		addDisguisedOwnerModuleNameInfo(level, pos, state, block, data.getBlockEntity(), data.getPlayer(), tooltip::add, config::get);
 	}
 
 	@Override
