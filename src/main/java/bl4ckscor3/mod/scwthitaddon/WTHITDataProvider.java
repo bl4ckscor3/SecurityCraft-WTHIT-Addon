@@ -64,7 +64,7 @@ public final class WTHITDataProvider extends HudModHandler implements IWailaPlug
 
 	@Override
 	public void appendBody(ITooltip tooltip, IBlockAccessor data, IPluginConfig config) {
-		addOwnerModuleNameInfo(data.getWorld(), data.getPosition(), data.getBlockState(), data.getBlock(), data.getBlockEntity(), data.getPlayer(), tooltip::addLine, config::getBoolean);
+		addDisguisedOwnerModuleNameInfo(data.getWorld(), data.getPosition(), data.getBlockState(), data.getBlock(), data.getBlockEntity(), data.getPlayer(), tooltip::addLine, config::getBoolean);
 	}
 
 	@Override
